@@ -1,0 +1,23 @@
+// // Optional: Override Bootstrap variables here
+// $primary: #6610f2;
+// $body-bg: #f8f9fa;
+// $main: #0095fd;
+
+// // Import required Bootstrap modules
+// @import "bootstrap/scss/bootstrap";
+
+// ✅ Step 1: Import Bootstrap functions (needed for map functions)
+@import "bootstrap/scss/functions";
+
+// ✅ Step 2: Import Bootstrap default variables (defines $theme-colors)
+@import "bootstrap/scss/variables";
+
+// 🧪 Step 3: Define your custom color
+$main: #0095fd;
+
+// ✅ Step 4: Extend $theme-colors using map-merge
+$theme-colors: map-merge($theme-colors,
+        ("main": $main ));
+
+// ✅ Step 5: Import the rest of Bootstrap (components, utilities, etc.)
+@import "bootstrap/scss/bootstrap";

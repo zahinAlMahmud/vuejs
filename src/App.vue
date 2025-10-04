@@ -1,15 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <Navbar/>
+  <MainContent/>
+  <CardContent/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import CardContent from './components/CardContent.vue';
+import MainContent from './components/MainContent.vue';
+import Navbar from './components/Navbar.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
+    Navbar,
+    MainContent,
+    CardContent
   }
 }
 </script>
@@ -21,6 +30,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
