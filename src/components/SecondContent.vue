@@ -1,12 +1,12 @@
 <template>
-  <div class="container-fluid  bg-main">
+  <div class="container-fluid  bg-primary">
     <div class="row align-items-start">
       <!-- Founder Section -->
       <div class="col-lg-8 mt-5">
         <img src="https://media-cache.cinematerial.com/p/500x/rcy5s6jn/superman-british-movie-poster.jpg?v=1747442873" alt="Founder">
         <p class=" mt-2 text-text1">6 October 2025</p>
           <div>
-            <h4 class="text-text1 fs-3">Our Chairman and Founder</h4>
+            <h4 class="text-light-grey fs-3">Our Chairman and Founder</h4>
             <p class="container text-text1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet in necessitatibus error unde voluptate temporibus voluptates quia possimus pariatur veniam minima aperiam cum doloremque nesciunt.</p>
           </div>
         
@@ -15,13 +15,13 @@
       <!-- Cards Section -->
       <div class="col-lg-4">
         <div v-for="(item, index) in data1" :key="index" class="card mb-3">
-          <div class="row g-0 align-items-center bg-side3">
+          <div class="row g-0 align-items-center bg-medium-grey">
             <div class="col-4 ">
               <img :src="item.image" class="img-fluid rounded-start" alt="Card image">
             </div>
             <div class="col-8">
               <div class="card-body">
-                <p class="card-text "><a href="/" class="text-decoration-none text-text1">{{ item.p }}</a></p>
+                <p class="card-text "><a href="/" class="text-decoration-none text-accent-purple">{{ item.p }}</a></p>
               </div>
             </div>
           </div>

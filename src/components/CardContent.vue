@@ -1,5 +1,5 @@
 <template>
-  <div class="container text-center my-5">
+  <div class="container text-center my-5 bg-accect-blue">
     <div class="row justify-content-center">
       <div class="col-md-3 col-sm-6 mb-4" v-for="(stat, index) in stats" :key="index">
         <div class="stat-card p-4 border rounded shadow-sm h-100 d-flex flex-column align-items-center">
