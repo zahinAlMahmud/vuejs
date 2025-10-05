@@ -4,6 +4,7 @@
   <Navbar/>
   <MainContent/>
   <CardContent/>
+  <SecondContent/>
 </template>
 
 <script>
@@ -11,6 +12,7 @@
 import CardContent from './components/CardContent.vue';
 import MainContent from './components/MainContent.vue';
 import Navbar from './components/Navbar.vue';
+import SecondContent from './components/SecondContent.vue';
 
 export default {
   name: 'App',
@@ -18,7 +20,8 @@ export default {
     // HelloWorld,
     Navbar,
     MainContent,
-    CardContent
+    CardContent,
+    SecondContent
   }
 }
 </script>

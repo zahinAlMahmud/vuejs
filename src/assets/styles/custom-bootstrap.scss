@@ -13,11 +13,49 @@
 @import "bootstrap/scss/variables";
 
 // 🧪 Step 3: Define your custom color
-$main: #0095fd;
+$main: #070F2B;
+$te:#1B1A55;
+$text1:#EEEEEE;
+$side:#3C0753;
+$side2:#940B92;
+$side3:#B0A4A4;
 
 // ✅ Step 4: Extend $theme-colors using map-merge
 $theme-colors: map-merge($theme-colors,
-        ("main": $main ));
+        ("main": $main,
+        "te":$te,
+        "text1":$text1,
+        "side1":$side,
+        "side2":$side2,
+        "side3":$side3 ));
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+$font-family-base: 'Roboto', sans-serif;
+$font-size-base: 16px;
+
+// Optional: custom sizes
+$font-sizes: (
+  "sm": 12px,
+  "md": 16px,
+  "lg": 20px,
+  "xl": 24px,
+  "xxl": 32px,
+  "huge": 48px
+);
+
+$font-decoration:(
+        "none":none
+);
+
+.text-side1{
+        color: map-get($theme-colors,"text1" )!important;
+}
+.text-side1.font-none:hover {
+  text-decoration: underline; // add underline on hover if you want
+  color: darken(map-get($theme-colors, "text1"), 10%);
+}
+
 
 // ✅ Step 5: Import the rest of Bootstrap (components, utilities, etc.)
 @import "bootstrap/scss/bootstrap";
