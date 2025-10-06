@@ -2,26 +2,17 @@
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <Navbar/>
-  <MainContent/>
-  <CardContent/>
-  <SecondContent/>
+  <router-view/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import CardContent from './components/CardContent.vue';
-import MainContent from './components/MainContent.vue';
 import Navbar from './components/Navbar.vue';
-import SecondContent from './components/SecondContent.vue';
+
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
     Navbar,
-    MainContent,
-    CardContent,
-    SecondContent
   }
 }
 </script>

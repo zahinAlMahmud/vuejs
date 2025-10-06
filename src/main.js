@@ -5,5 +5,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./assets/styles/custom-bootstrap.scss";
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
+import router from './router';
 
-createApp(App).mount("#app");
+const app  = createApp(App)
+app.use(router);
+app.mount("#app");

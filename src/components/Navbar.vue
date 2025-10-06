@@ -1,7 +1,10 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-accent-blue text-text1">
   <div class="container-fluid me-0">
-    <a class="navbar-brand" href="#">MetaHeed</a>
+    <router-link 
+    class="nav-link active text-text1 font-size-xxl" 
+    aria-current="page" 
+    to="/" style="cursor: pointer;">Metaheed</router-link>
 
     <!-- Toggler for mobile view -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -13,36 +16,52 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <router-link 
+    class="nav-link active text-text1" 
+    aria-current="page" 
+    to="/" style="cursor: pointer;">Home</router-link>
+        </li>
+         <li class="nav-item">
+          <router-link 
+    class="nav-link active text-text1" 
+    aria-current="page" 
+    to="/about" style="cursor: pointer;">About</router-link>
+        </li>
+         <li class="nav-item">
+         <router-link 
+    class="nav-link active text-text1" 
+    aria-current="page" 
+    to="/who-we-are" style="cursor: pointer;">Who We Are</router-link>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link active text-text1" aria-current="page" to="/Our company">Our Company</a>
         </li>
         <li class="nav-item dropdown">
           <button class="btn btn-primary dropdown-toggle ms-3" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Features
+            CLients
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><button class="dropdown-item" type="button">Action</button></li>
-            <li><button class="dropdown-item" type="button">Another action</button></li>
-            <li><button class="dropdown-item" type="button">Something else here</button></li>
+            <li><button class="dropdown-item" type="button">International Standard University (ISU)</button></li>
+            <li><button class="dropdown-item" type="button">Green CyberSec</button></li>
+            <li><button class="dropdown-item" type="button">Open Journal System (OJS)</button></li>
+            <li><button class="dropdown-item" type="button">MultiGroup</button></li>
+            <li><button class="dropdown-item" type="button">On Demand Open Object  (Odoo)</button></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-disabled="true">Disabled</a>
-        </li>
-
         <!-- Dropdown menu -->
         <li class="nav-item dropdown">
           <button class="btn btn-main dropdown-toggle ms-3" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Dropdown
+            Service
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><button class="dropdown-item" type="button">Action</button></li>
-            <li><button class="dropdown-item" type="button">Another action</button></li>
-            <li><button class="dropdown-item" type="button">Something else here</button></li>
+            <li><button class="dropdown-item" type="button">Landing Page & Website</button></li>
+            <li><button class="dropdown-item" type="button">Wazuh</button></li>
+            <li><button class="dropdown-item" type="button">Opensense & PfSense</button></li>
+            <li><button class="dropdown-item" type="button">Graphics Design</button></li>
+            <li><button class="dropdown-item" type="button">System Admistration</button></li>
+            <li><button class="dropdown-item" type="button">Cloud Computing</button></li>
           </ul>
         </li>
       </ul>
@@ -55,9 +74,9 @@
 <script>
 export default{
     name:'HelloWorld',
-    props:{
-        msg:String
-    }
+    // props:{
+    //     msg:String
+    // }
 }
 </script>
 

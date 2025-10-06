@@ -1,81 +1,103 @@
 <template>
-  <div id="carouselExample" class="carousel slide mt-5" data-bs-ride="carousel">
-    <!-- Carousel indicators -->
-    <div class="carousel-indicators">
-      <button
-        v-for="(item, index) in data1"
-        :key="index"
-        type="button"
-        data-bs-target="#carouselExample"
-        :data-bs-slide-to="index"
-        :class="{ active: index === 0 }"
-      ></button>
-    </div>
+  <div class="container-fluid py-5 bg-primary w-full">
+    <div
+      id="rotatingGalleryCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      data-bs-interval="2000"
+    >
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button
+          v-for="(item, index) in slides"
+          :key="index"
+          type="button"
+          data-bs-target="#rotatingGalleryCarousel"
+          :data-bs-slide-to="index"
+          :class="{ active: index === 0 }"
+        ></button>
+      </div>
 
-    <!-- Carousel items -->
-    <div class="carousel-inner text-center">
-      <div
-        v-for="(item, index) in data1"
-        :key="index"
-        :class="['carousel-item', { active: index === 0 }]"
-      >
-        <div class="row align-items-center justify-content-center vh-100">
-          <div class="col-12 col-md-6 mb-4 mb-md-0">
-            <img :src="item.image" class="img-fluid" :alt="'Slide ' + (index + 1)" />
-          </div>
-          <div class="col-12 col-md-6">
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.p }}</p>
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <div
+          v-for="(item, index) in slides"
+          :key="index"
+          :class="['carousel-item', { active: index === 0 }]"
+        >
+          <div class="row align-items-center justify-content-center text-white vh-100">
+            <!-- 📝 Left side text -->
+            <div class="col-12 col-md-6 text-center text-md-start px-4">
+              <h2 class="fw-bold mb-3 text-text1">{{ item.title }}</h2>
+              <p class="lead text-text1">{{ item.p }}</p>
+              <button class="btn btn-outline-primary mt-3">Learn More</button>
+            </div>
+
+            <!-- 🎠 Right side rotating 3D gallery -->
+            <div class="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0 ">
+              <div class="rotating-gallery position-relative">
+                <div
+                  v-for="(img, i) in item.gallery"
+                  :key="i"
+                  class="image-wrapper"
+                  :style="{ '--i': i }"
+                >
+                  <img :src="img" class="gallery-img" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Carousel controls -->
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExample"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon"></span>
-    </button>
+      <!-- Controls -->
+
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CybersecurityCarousel",
+  name: "RotatingGallery",
   data() {
     return {
-      data1: [
+      slides: [
         {
           title: "Welcome to Cybersecurity",
-          image:
-            "https://plus.unsplash.com/premium_vector-1727472798424-ac2a798a4873?q=80&w=691&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           p: "Protecting your data and systems from online threats is essential in today’s digital world.",
+          gallery: [
+            "https://media.istockphoto.com/id/2035601113/photo/cybersecurity-innovations-concept-engineer-computer-working-with-laptop-computer-show-pad.jpg?s=612x612&w=0&k=20&c=zhqd2qypnGpbYCDqdOHt0BUGHDcp6ehPJzh155a5DgI=",
+            "https://www.shutterstock.com/image-photo/glowing-digital-lock-surrounded-by-600nw-2517566697.jpg",
+            "https://t4.ftcdn.net/jpg/02/45/63/69/360_F_245636933_kY23ohGptK5t6n8wGSXIgLgVXWeHJRct.jpg",
+          ],
         },
         {
           title: "Big Data Insights",
-          image:
-            "https://cdn.pixabay.com/photo/2016/09/13/13/16/big-data-1667212_960_720.png",
           p: "Analyze massive datasets to detect threats, predict risks, and strengthen security measures.",
+          gallery: [
+            "https://www.smartsight.in/wp-content/uploads/2021/07/Big-Data-01.jpg",
+            "https://media.licdn.com/dms/image/v2/D4D12AQFNUAdgaoK2zQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1692816749106?e=2147483647&v=beta&t=QS3H9YJkB7gxHWr6uwmkYQN8j04hQvUODpfIvp9VjtY",
+            "https://cdn.analyticsvidhya.com/wp-content/uploads/2021/05/694991_cDO5wuA0NdevLb45zHRvog.jpeg",
+          ],
         },
         {
-          title: "Email & Network Security",
-          image:
-            "https://plus.unsplash.com/premium_vector-1750156569475-a9013c101d45?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          title: "Email Security",
           p: "Ensure your communications are safe and networks are protected against cyberattacks.",
+          gallery: [
+            "https://media.istockphoto.com/id/2194476573/photo/email-security-spam-virus-alert-in-email-businessman-using-smartphone-to-access-email.jpg?s=612x612&w=0&k=20&c=kRLn7Lg8xqBm9AtIWq6daUg2lY8yWTurXEd_nWClF_Y=",
+            "https://media.istockphoto.com/id/1346734927/vector/hacker-and-cyber-criminals-phishing-stealing-private-personal-data-user-login-password.jpg?s=612x612&w=0&k=20&c=ZHZIlbWiMDxe1JDSb3pfOzvoMtqa1pPOUwh1lMSAhz8=",
+            "https://media.istockphoto.com/id/1296958349/vector/safe-mail-message-transfer-letter-digital-concept-vector-flat-graphic-design-simple.jpg?s=612x612&w=0&k=20&c=etVLWc6-P3Aso9D-AfP5F79aCrZMM7ueMTgghpX9QbU=",
+          ],
         },
-        // Add more slides as needed
+         {
+          title: "Network Security",
+          p: "Network security involves protecting networks and data from unauthorized access, cyberattacks, and threats, ensuring safe and reliable communication across systems.",
+          gallery: [
+            "https://eu-images.contentstack.com/v3/assets/blt07f68461ccd75245/blt9a0dbfd66f2496de/6650a07b75c24653285b9978/the_20words_20network_20security_20surrounded_20by_20various_20IT_20icons.jpg",
+            "https://www.extnoc.com/learn/wp-content/uploads/2022/02/Network-Security.jpg",
+            "https://www.cyberdb.co/wp-content/uploads/2024/05/aaa.png",
+          ],
+        },
       ],
     };
   },
@@ -83,17 +105,78 @@ export default {
 </script>
 
 <style scoped>
-/* Ensure carousel takes full viewport height */
-.carousel-item {
-  min-height: 80vh;
+body {
+  background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
 }
 
-/* Responsive fix for small screens */
+/* 🎠 Rotating 3D Gallery */
+.rotating-gallery {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  animation: spin 10s linear infinite;
+}
+
+.image-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(calc(var(--i) * 120deg)) translateZ(350px);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25%;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+  animation: morph 5s ease-in-out infinite alternate;
+}
+
+/* Rotation animation */
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/* Morphing image shape */
+@keyframes morph {
+  0% {
+    border-radius: 50%;
+    transform: scale(1);
+  }
+  25% {
+    border-radius: 30% 70% 70% 30% / 40% 60% 40% 60%;
+    transform: scale(1.05);
+  }
+  50% {
+    border-radius: 10%;
+    transform: scale(1.1) rotate(2deg);
+  }
+  75% {
+    border-radius: 35% 65% 50% 50%;
+    transform: scale(1.03);
+  }
+  100% {
+    border-radius: 50%;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .vh-100 {
     height: auto !important;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  }
+  .rotating-gallery {
+    width: 220px;
+    height: 220px;
+    transform: scale(0.9);
   }
 }
 </style>

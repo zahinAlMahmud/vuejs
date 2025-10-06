@@ -9,7 +9,7 @@
 // -------------------------------
 $main: #070f2b; // Dark blue / primary
 $te: #1b1a55; // Light blue / accent
-$text1: #eeeeee; // Text color for dark backgrounds
+$text1: #f8f8f8; // Text color for dark backgrounds
 $side: #3c0753; // Dark accent
 $side2: #940b92; // Purple / magenta
 $side3: #b0a4a4;
@@ -21,7 +21,6 @@ $light-grey: #f5f5f5;
 $medium-grey: #d9d9d9;
 $dark-grey: #555555;
 $body-text: #333333; // Neutral grey
-
 // -------------------------------
 // 3️⃣ Merge Custom Colors into Bootstrap Theme Map
 // -------------------------------
@@ -64,6 +63,13 @@ $font-sizes: (
 $font-decoration: (
   "none": none,
 );
+
+@each $name, $size in $font-sizes {
+  .font-size-#{$name} {
+    font-size: $size !important;
+  }
+}
+
 
 // -------------------------------
 // 5️⃣ Custom Utility Classes
@@ -230,6 +236,17 @@ a {
       font-size: 0.9rem;
       color: map-get($theme-colors, "dark-grey");
     }
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeInText 2s ease forwards; // 2-second fade
+  animation-delay: 0.5s; // optional delay
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
   }
 }
 
