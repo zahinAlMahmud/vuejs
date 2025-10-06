@@ -1,12 +1,14 @@
 <template>
   <div class="our-story">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background-color: #000041;">
       <div class="container">
-        <h1 class="title">Our Story</h1>
-        <p class="subtitle">
-          Delivering success through collaboration, transformation, and a commitment to our planet.
+        <h1 class="title text-xxl" style="color: #940b92;">Our Story</h1>
+        <p class="subtitle font-size-xl" style="color:#940b92; font-weight: 600;">
+     <span style="font-weight: 900; font-size: 32px; transform: scaleX(1.5); display: inline-block; color: #000041;   text-shadow: 1px 0 black, -1px 0 black;">/</span>
+ Delivering success through collaboration, transformation, and a commitment to our planet.
         </p>
+        <img src="https://www.advancingnortheast.in/wp-content/uploads/2021/12/Success-stories-e1639374913809.png" alt="">
       </div>
     </section>
 
@@ -24,8 +26,8 @@
     <section class="vision-mission">
       <div class="container">
         <div class="vision">
-          <h2>Our Vision</h2>
-          <p>
+          <h2 class="text-text1">Our Vision</h2>
+          <p style="color: blueviolet;">
             To help brands and entrepreneurs reach their customers where on-ground barriers have been cost-effectively simplified by MGH.
           </p>
         </div>
