@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid py-5 bg-primary w-full">
+  <div class="container-fluid py-5 bg-primary w-full" id="home">
     <div
       id="rotatingGalleryCarousel"
       class="carousel slide"
@@ -28,7 +28,7 @@
           <div class="row align-items-center justify-content-center text-white vh-100">
             <!-- 📝 Left side text -->
             <div class="col-12 col-md-6 text-center text-md-start px-4">
-              <h2 class="fw-bold mb-3 text-text1">{{ item.title }}</h2>
+              <h2 class="fw-bold mb-3 text-text1"  :style="{ fontSize: '4.5rem' }">{{ item.title }}</h2>
               <p class="lead text-text1">{{ item.p }}</p>
               <button class="btn btn-outline-primary mt-3">Learn More</button>
             </div>
@@ -63,7 +63,7 @@ export default {
     return {
       slides: [
         {
-          title: "Welcome to Cybersecurity",
+          title: "Cybersecurity",
           p: "Protecting your data and systems from online threats is essential in today’s digital world.",
           gallery: [
             "https://media.istockphoto.com/id/2035601113/photo/cybersecurity-innovations-concept-engineer-computer-working-with-laptop-computer-show-pad.jpg?s=612x612&w=0&k=20&c=zhqd2qypnGpbYCDqdOHt0BUGHDcp6ehPJzh155a5DgI=",

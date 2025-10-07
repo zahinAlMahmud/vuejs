@@ -1,5 +1,6 @@
 <template>
-<nav class="navbar navbar-expand-lg bg-accent-blue text-text1">
+<nav class="navbar navbar-expand-lg bg-accent-blue text-text1 fixed-top" 
+  :class="isDark ? 'navbar-dark bg-dark' : 'navbar-light bg-light' ">
   <div class="container-fluid me-0">
     <router-link 
     class="nav-link active text-text1 font-size-xxl" 
@@ -19,19 +20,19 @@
           <router-link 
     class="nav-link active text-text1" 
     aria-current="page" 
-    to="/" style="cursor: pointer;">Home</router-link>
+     :to="{ path: '/', hash: '#home' }"  style="cursor: pointer;">Home</router-link>
         </li>
          <li class="nav-item">
           <router-link 
     class="nav-link active text-text1" 
     aria-current="page" 
-    to="/about" style="cursor: pointer;">About</router-link>
+      :to="{ path: '/', hash: '#about' }" style="cursor: pointer;">About</router-link>
         </li>
          <li class="nav-item">
          <router-link 
     class="nav-link active text-text1" 
     aria-current="page" 
-    to="/who-we-are" style="cursor: pointer;">Who We Are</router-link>
+    to="/" style="cursor: pointer;">Who We Are</router-link>
         </li>
          <li class="nav-item">
           <a class="nav-link active text-text1" aria-current="page" to="/Our company">Our Company</a>
@@ -64,6 +65,12 @@
             <li><button class="dropdown-item" type="button">Cloud Computing</button></li>
           </ul>
         </li>
+            <li class="nav-item ms-3">
+            <button class="btn btn-outline-secondary" @click="toggleTheme">
+              <i :class="isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'"></i>
+              {{ isDark ? 'Light' : 'Dark' }}
+            </button>
+          </li>
       </ul>
     </div>
   </div>
@@ -72,13 +79,49 @@
 </template>
 
 <script>
-export default{
-    name:'HelloWorld',
-    // props:{
-    //     msg:String
-    // }
+export default {
+  name: 'HelloWorld',
+  data() {
+    return {
+      isDark: false
+    }
+  },
+  mounted() {
+    // Load user theme preference
+    const saved = localStorage.getItem('theme')
+    this.isDark = saved === 'dark'
+    this.applyTheme()
+  },
+  methods: {
+    toggleTheme() {
+      this.isDark = !this.isDark
+      localStorage.setItem('theme', this.isDark ? 'dark' : 'light')
+      this.applyTheme()
+    },
+    applyTheme() {
+      const theme = this.isDark ? 'dark' : 'light'
+      document.documentElement.setAttribute('data-bs-theme', theme)
+    }
+  }
 }
 </script>
 
 <style>
-</style> 
+/* Optional transition effect */
+html, body {
+  transition: background-color 0.3s, color 0.3s;
+}
+.section-title {
+  transition: color 0.3s ease;
+}
+
+/* Light theme (default) */
+[data-bs-theme="light"] .section-title ,p {
+  color: #000; /* black text */
+}
+
+/* Dark theme */
+[data-bs-theme="dark"] .section-title,p {
+  color: #fff; /* white text */
+}
+</style>
