@@ -26,16 +26,18 @@
           :class="['carousel-item', { active: index === 0 }]"
         >
           <div class="row align-items-center justify-content-center text-white vh-100">
-            <!-- 📝 Left side text -->
+            <!-- 📝 Left Text -->
             <div class="col-12 col-md-6 text-center text-md-start px-4">
-              <h2 class="fw-bold mb-3 text-text1"  :style="{ fontSize: '4.5rem' }">{{ item.title }}</h2>
+              <h2 class="fw-bold mb-3 text-text1" :style="{ fontSize: '4.5rem' }">
+                {{ item.title }}
+              </h2>
               <p class="lead text-text1">{{ item.p }}</p>
-              <button class="btn btn-outline-primary mt-3">Learn More</button>
+              <button class="btn btn-outline-light mt-3">Learn More</button>
             </div>
 
-            <!-- 🎠 Right side rotating 3D gallery -->
-            <div class="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0 ">
-              <div class="rotating-gallery position-relative">
+            <!-- 🎠 Right Gallery -->
+            <div class="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
+              <div class="rotating-gallery">
                 <div
                   v-for="(img, i) in item.gallery"
                   :key="i"
@@ -49,9 +51,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Controls -->
-
     </div>
   </div>
 </template>
@@ -89,9 +88,9 @@ export default {
             "https://media.istockphoto.com/id/1296958349/vector/safe-mail-message-transfer-letter-digital-concept-vector-flat-graphic-design-simple.jpg?s=612x612&w=0&k=20&c=etVLWc6-P3Aso9D-AfP5F79aCrZMM7ueMTgghpX9QbU=",
           ],
         },
-         {
+        {
           title: "Network Security",
-          p: "Network security involves protecting networks and data from unauthorized access, cyberattacks, and threats, ensuring safe and reliable communication across systems.",
+          p: "Protecting networks and data from unauthorized access and cyber threats for safe communication.",
           gallery: [
             "https://eu-images.contentstack.com/v3/assets/blt07f68461ccd75245/blt9a0dbfd66f2496de/6650a07b75c24653285b9978/the_20words_20network_20security_20surrounded_20by_20various_20IT_20icons.jpg",
             "https://www.extnoc.com/learn/wp-content/uploads/2022/02/Network-Security.jpg",
@@ -109,15 +108,23 @@ body {
   background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
 }
 
-/* 🎠 Rotating 3D Gallery */
+/* 🎠 Rotating Gallery */
 .rotating-gallery {
   position: relative;
   width: 300px;
   height: 300px;
   transform-style: preserve-3d;
-  animation: spin 10s linear infinite;
+  animation: spin 12s linear infinite;
+  transition: all 0.4s ease;
 }
 
+/* 🌀 Stop rotation when hovered */
+.rotating-gallery:hover {
+  animation-play-state: paused;
+  transform: scale(1.05);
+}
+
+/* 🖼️ Each image layer */
 .image-wrapper {
   position: absolute;
   width: 100%;
@@ -131,7 +138,16 @@ body {
   object-fit: cover;
   border-radius: 25%;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-  animation: morph 5s ease-in-out infinite alternate;
+  transition: all 0.5s ease;
+  opacity: 0.9;
+}
+
+/* When hovered – highlight the current image */
+.rotating-gallery:hover .gallery-img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+  z-index: 10;
 }
 
 /* Rotation animation */
@@ -144,31 +160,7 @@ body {
   }
 }
 
-/* Morphing image shape */
-@keyframes morph {
-  0% {
-    border-radius: 50%;
-    transform: scale(1);
-  }
-  25% {
-    border-radius: 30% 70% 70% 30% / 40% 60% 40% 60%;
-    transform: scale(1.05);
-  }
-  50% {
-    border-radius: 10%;
-    transform: scale(1.1) rotate(2deg);
-  }
-  75% {
-    border-radius: 35% 65% 50% 50%;
-    transform: scale(1.03);
-  }
-  100% {
-    border-radius: 50%;
-    transform: scale(1);
-  }
-}
-
-/* Responsive */
+/* Responsive design */
 @media (max-width: 768px) {
   .vh-100 {
     height: auto !important;
@@ -176,7 +168,6 @@ body {
   .rotating-gallery {
     width: 220px;
     height: 220px;
-    transform: scale(0.9);
   }
 }
 </style>

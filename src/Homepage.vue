@@ -6,8 +6,10 @@
   <CardContent/>
   <SecondContent/>
   <AboutPage/>
+  <Weare/>
+  <TeamDescription/>
   <!-- <RotatingGallery/> -->
-  <Combination/>
+  <!-- <Combination/> -->
 </template>
 
 <script>
@@ -19,6 +21,8 @@ import MainContent from './components/MainContent.vue';
 import Navbar from './components/Navbar.vue';
 // import RotatingGallery from './components/RotatingGallery.vue';
 import SecondContent from './components/SecondContent.vue';
+import TeamDescription from './components/TeamDescription.vue';
+import Weare from './components/Weare.vue';
 
 export default {
   name: 'HomePageView',
@@ -29,6 +33,8 @@ export default {
     CardContent,
     SecondContent,
     AboutPage,
+    Weare,
+    TeamDescription
     // RotatingGallery,
     // Combination
   }

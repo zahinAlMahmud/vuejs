@@ -74,17 +74,17 @@
     </section>
 
     <!-- Company Overview -->
-    <section class="overview">
+    <!-- <section class="overview">
       <div class="container">
         <h2 class="section-title ">Our Dedication</h2>
         <p>
           At MGH, our dedication lies in delivering groundbreaking supply chain solutions that disrupt the norm. With over three decades of logistics expertise, we take pride in our role as a worldwide industry frontrunner, facilitating seamless global trade and commerce.
         </p>
       </div>
-    </section>
+    </section> -->
 
     <!-- Vision & Mission -->
-    <section class="vision-mission">
+    <!-- <section class="vision-mission">
       <div class="container">
         <div class="vision">
           <h2 class="text-text1">Our Vision</h2>
@@ -99,10 +99,10 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Call to Action -->
-    <section class="cta">
+    <!-- <section class="cta">
       <div class="container">
         <p>
           If you're looking to dissolve borders, our comprehensive logistics solutions can give you a headstart. If you're looking to expand your business footprint, our end-to-end e-commerce solutions can help you fast-track your go-to-market.
@@ -111,7 +111,7 @@
           If you're looking for a partner that has the planet in their heart, we've got you covered. Our commitment to our planet is delivered through our robust ESG practices.
         </p>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
