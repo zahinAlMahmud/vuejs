@@ -6,8 +6,11 @@
   <CardContent/>
   <SecondContent/>
   <AboutPage/>
+<<<<<<< HEAD
   <Weare/>
   <TeamDescription/>
+=======
+>>>>>>> 0b5d3071401cf927a3cbece459588c0cab7eab89
   <!-- <RotatingGallery/> -->
   <!-- <Combination/> -->
 </template>
@@ -33,8 +36,11 @@ export default {
     CardContent,
     SecondContent,
     AboutPage,
+<<<<<<< HEAD
     Weare,
     TeamDescription
+=======
+>>>>>>> 0b5d3071401cf927a3cbece459588c0cab7eab89
     // RotatingGallery,
     // Combination
   }

@@ -28,9 +28,13 @@
           <div class="row align-items-center justify-content-center text-white vh-100">
             <!-- 📝 Left Text -->
             <div class="col-12 col-md-6 text-center text-md-start px-4">
+<<<<<<< HEAD
               <h2 class="fw-bold mb-3 text-text1" :style="{ fontSize: '4.5rem' }">
                 {{ item.title }}
               </h2>
+=======
+              <h2 class="fw-bold mb-3 text-text1"  :style="{ fontSize: '4.5rem' }">{{ item.title }}</h2>
+>>>>>>> 0b5d3071401cf927a3cbece459588c0cab7eab89
               <p class="lead text-text1">{{ item.p }}</p>
               <button class="btn btn-outline-light mt-3">Learn More</button>
             </div>

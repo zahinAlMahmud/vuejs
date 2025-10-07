@@ -32,7 +32,11 @@
          <router-link 
     class="nav-link active text-text1" 
     aria-current="page" 
+<<<<<<< HEAD
        :to="{ path: '/', hash: '#who' }" style="cursor: pointer;">Who We Are</router-link>
+=======
+    to="/" style="cursor: pointer;">Who We Are</router-link>
+>>>>>>> 0b5d3071401cf927a3cbece459588c0cab7eab89
         </li>
          <li class="nav-item">
           <a class="nav-link active text-text1" aria-current="page" to="/Our company">Our Company</a>
