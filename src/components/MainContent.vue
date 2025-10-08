@@ -4,7 +4,7 @@
       id="rotatingGalleryCarousel"
       class="carousel slide"
       data-bs-ride="carousel"
-      data-bs-interval="2000"
+      data-bs-interval="3000"
     >
       <!-- Indicators -->
       <div class="carousel-indicators">
@@ -25,22 +25,14 @@
           :key="index"
           :class="['carousel-item', { active: index === 0 }]"
         >
-          <div class="row align-items-center justify-content-center text-white vh-100">
-            <!-- 📝 Left Text -->
-            <div class="col-12 col-md-6 text-center text-md-start px-4">
-<<<<<<< HEAD
-              <h2 class="fw-bold mb-3 text-text1" :style="{ fontSize: '4.5rem' }">
-                {{ item.title }}
-              </h2>
-=======
-              <h2 class="fw-bold mb-3 text-text1"  :style="{ fontSize: '4.5rem' }">{{ item.title }}</h2>
->>>>>>> 0b5d3071401cf927a3cbece459588c0cab7eab89
-              <p class="lead text-text1">{{ item.p }}</p>
-              <button class="btn btn-outline-light mt-3">Learn More</button>
-            </div>
-
-            <!-- 🎠 Right Gallery -->
-            <div class="col-12 col-md-6 d-flex justify-content-center mt-4 mt-md-0">
+          <!-- Row with responsive column order -->
+          <div
+            class="row align-items-center justify-content-center text-white vh-100 flex-column flex-md-row"
+          >
+            <!-- 🎠 Rotating Gallery (show first on mobile) -->
+            <div
+              class="col-12 col-md-6 d-flex justify-content-center order-1 order-md-2 mt-4 mt-md-0"
+            >
               <div class="rotating-gallery">
                 <div
                   v-for="(img, i) in item.gallery"
@@ -51,6 +43,20 @@
                   <img :src="img" class="gallery-img" />
                 </div>
               </div>
+            </div>
+
+            <!-- 📝 Text Section (show below on mobile) -->
+            <div
+              class="col-12 col-md-6 text-center text-md-start px-4 order-2 order-md-1 mt-4 mt-md-0"
+            >
+              <h2
+                class="fw-bold mb-3 text-text1"
+                :style="{ fontSize: '3rem' }"
+              >
+                {{ item.title }}
+              </h2>
+              <p class="lead text-text1">{{ item.p }}</p>
+              <button class="btn btn-outline-light mt-3">Learn More</button>
             </div>
           </div>
         </div>
@@ -79,7 +85,7 @@ export default {
           p: "Analyze massive datasets to detect threats, predict risks, and strengthen security measures.",
           gallery: [
             "https://www.smartsight.in/wp-content/uploads/2021/07/Big-Data-01.jpg",
-            "https://media.licdn.com/dms/image/v2/D4D12AQFNUAdgaoK2zQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1692816749106?e=2147483647&v=beta&t=QS3H9YJkB7gxHWr6uwmkYQN8j04hQvUODpfIvp9VjtY",
+            "https://media.licdn.com/dms/image/v2/D4D12AQFNUAdgaoK2zQ/article-cover_image-shrink_600_2000/0/1692816749106?e=2147483647&v=beta&t=QS3H9YJkB7gxHWr6uwmkYQN8j04hQvUODpfIvp9VjtY",
             "https://cdn.analyticsvidhya.com/wp-content/uploads/2021/05/694991_cDO5wuA0NdevLb45zHRvog.jpeg",
           ],
         },
@@ -108,6 +114,7 @@ export default {
 </script>
 
 <style scoped>
+/* Background */
 body {
   background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
 }
@@ -122,13 +129,11 @@ body {
   transition: all 0.4s ease;
 }
 
-/* 🌀 Stop rotation when hovered */
 .rotating-gallery:hover {
   animation-play-state: paused;
   transform: scale(1.05);
 }
 
-/* 🖼️ Each image layer */
 .image-wrapper {
   position: absolute;
   width: 100%;
@@ -142,11 +147,10 @@ body {
   object-fit: cover;
   border-radius: 25%;
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-  transition: all 0.5s ease;
   opacity: 0.9;
+  transition: all 0.5s ease;
 }
 
-/* When hovered – highlight the current image */
 .rotating-gallery:hover .gallery-img:hover {
   transform: scale(1.2);
   opacity: 1;
@@ -154,7 +158,6 @@ body {
   z-index: 10;
 }
 
-/* Rotation animation */
 @keyframes spin {
   from {
     transform: rotateY(0deg);
@@ -164,7 +167,7 @@ body {
   }
 }
 
-/* Responsive design */
+/* 📱 Responsive: smaller gallery & stacked layout */
 @media (max-width: 768px) {
   .vh-100 {
     height: auto !important;
@@ -172,6 +175,9 @@ body {
   .rotating-gallery {
     width: 220px;
     height: 220px;
+  }
+  h2 {
+    font-size: 2rem !important;
   }
 }
 </style>
